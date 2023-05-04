@@ -1,0 +1,49 @@
+# Go Fish (Go Fishy, working title)
+
+## TODO
+
++ make a welcome screen
++ make a notification toast for what happens
++ make a game over and a score dialog with a new game button
++ make the cpu not guess ranks that are already in books (only asks for cards in hand)
++ player can only ask for cards they have, so dim the buttons that don't match what's in the
+  player's hand
++ if I get a card from the other person, go again.  If I get the card I ask for from go fish, go
+  again
+- make a 2 card book version
++ bug: game crashes... deck runs out somewhere
++ make buttons stay on the bottom
++ make game over work
++ sort hands
+- make a help screen
++ make buttons have icons or just letters (2 letters max)
+- Overlap card images a bit
+- Make CPU smarter, don't ask for the card it just took, don't ask for the same card twice in a row
+  unless it has no other options.
+
+## Official Rules
+
+### Object
+To collect the most sets of 4 cards.
+
+### Setup
+Shuffle the cards and deal 7 cards face down to each player. Deal 5 cards to each player if there
+are 4 or more players. Place the remaining cards face down in a draw pile where everyone can reach
+them. Arrange cards by number so that all the 1s are together, all the 2s are together, and so on.
+
+### The Play
+The player to the left of the dealer goes first and play continues clockwise. The first player asks
+a specific person if he or she has any cards of a specific number. For example, player one might ask
+player three if she has any 2s. Player one must have at least one 2 in his hand in order to ask for
+it. If player three has any 2s, she must give them all to player one. Player one may then go again
+and can continue playing until he does not get the card he asks for.
+
+If player three does not have any 2s, she says “Go fish!” and player one must take 1 card from the
+draw pile. If the picked card is the card he wanted, a 2, he must show it to all players and can
+then go again. If it is not the card he asked for, then it is the next person’s turn. Once a player
+has collected 4 of a kind, he places the cards in front him. The game ends when either someone has
+no cards in his hand or the draw pile runs out.
+
+###Game End
+The winner is the person who has collected the most sets of 4 cards. For a simpler version, collect
+pairs rather than 4 of a kind. Game plays and ends in the same manner as the standard game.
