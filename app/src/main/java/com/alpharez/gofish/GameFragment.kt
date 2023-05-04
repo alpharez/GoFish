@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -20,7 +19,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -28,8 +26,6 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.navigation.findNavController
 import com.alpharez.gofish.databinding.FragmentGameBinding
 import com.google.accompanist.flowlayout.FlowRow
-import com.google.android.material.snackbar.Snackbar
-
 
 class GameFragment : Fragment() {
     private var _binding: FragmentGameBinding? = null
