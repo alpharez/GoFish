@@ -148,6 +148,15 @@ class GameFragment : Fragment() {
         snackbar.show()
     }  */
 
+    /*
+    fun showMsg(text: String, rank: RANK) {
+        val msg = "Requested $rank, Go Fish!"
+        Toast.makeText(activity, msg, Toast.LENGTH_SHORT).show()
+        val snackbarView = view.findViewById<>()
+        Snackbar.make(view, msg, Snackbar.LENGTH_SHORT).show()
+    }
+    */
+
     @Composable
     fun ShowHand(hand : Hand) {
         val hand1 = remember { hand }
@@ -213,7 +222,6 @@ class GameFragment : Fragment() {
 
     private fun goFish(hand : Hand, deck : Deck, rank: RANK) : Boolean {
         var goAgain = false
-        // TODO report what was asked for
         Toast.makeText(activity, "Requested $rank, Go Fish!", Toast.LENGTH_SHORT).show()
         if (deck.hasCards()) {
             val card = deck.drawCard()
@@ -253,14 +261,24 @@ class GameFragment : Fragment() {
 
     private fun doCpuTurn(hand : Hand, otherHand: Hand) : Boolean {
         val goAgain : Boolean
+        var rankRequest : RANK
         // only ask for card ranks that are in the hand
-        // TODO: Toast what the CPU has taken from player
-        // TODO: show on the Toast what turn is which
         return if(hand.cards.isNotEmpty()) {
             // TODO: Do some AI here.  Remember guesses.  Remember what we have taken already.
             // TODO: Remember what the player wants
-            val rankRequest = hand.cards.random().rank
+            val rankRequestList = mutableListOf<RANK>()
+            rankRequestList.add(playerCardRequests.last()) // what the player just asked for
+            rankRequestList.add(playerCardRequests[playerCardRequests.size-1]) // next to last
+            rankRequestList.add(playerCardRequests[playerCardRequests.size-2]) // next to last
+            rankRequest = hand.cards.random().rank
+            rankRequestList.add(rankRequest) // fallback choice
+            for(request in rankRequestList) {
+                if (cpuHand.hasRank(request)) {
+                    rankRequest = request
+                }
+            }
             cpuCardRequests.add(rankRequest) // remember previous requests for CPU AI
+            // TODO: go through past 3 player requests and see if there is a match with cpu hand
             goAgain = doTurn(hand, otherHand, rankRequest)
             if(goAgain) {
                 Toast.makeText(activity, "CPU has taken a card(s) $rankRequest", Toast.LENGTH_SHORT).show()
